@@ -70,6 +70,7 @@ public class ContextPathScriptResolverTest {
     Set<String> preloads = new HashSet<String>();
     preloads.add(SPEC_DIRECTORY+"/specScript");
     preloads.add(SOURCE_DIRECTORY+"/sourceScript");
+    preloads.add("target/ciber/sourceScript");
     preloads.add("http://example.org/script.js");
 
     when(this.scriptResolver.getSourceDirectory()).thenReturn(SOURCE_DIRECTORY);
@@ -79,6 +80,7 @@ public class ContextPathScriptResolverTest {
     Set<String> expected = new HashSet<String>();
     expected.add(SPEC_CONTEXT_PATH+"/specScript");
     expected.add(SOURCE_CONTEXT_PATH+"/sourceScript");
+    expected.add("target/ciber/sourceScript");
     expected.add("http://example.org/script.js");
 
     assertEquals(expected, this.contextPathScriptResolver.getPreloads());
